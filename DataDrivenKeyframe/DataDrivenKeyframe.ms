@@ -21,7 +21,6 @@ fn setAnimToObject GivenObject =
 	--print f1
 	
 	f2 = openFile f1 mode:"rt"
-		
 	try (
 		while not eof f2 AND not errorState do 
 			(
