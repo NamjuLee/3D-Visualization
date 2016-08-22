@@ -4,7 +4,7 @@
 	
 fn setAnimToObject GivenObject = 
 (
-	pbar.value = 0 	--print spin_fromx.value
+	--pbar.value = 0 	--print spin_fromx.value
 	i = 0
 	errorState = false
 		
