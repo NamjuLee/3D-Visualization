@@ -1,7 +1,6 @@
 
 --Set the animation keyframes of an object from a text file
 --If the object has keyframes already outside the range the file has, they will be kept
-	
 fn setAnimToObject GivenObject = 
 (
 	--pbar.value = 0 	--print spin_fromx.value
@@ -63,6 +62,5 @@ rollout setAnimToObjectPanel "Animation From Data set Version 0.0.1 by NJSTUDIO"
 		setAnimToObject GivenObject
 	)
 )
-
 createdialog setAnimToObjectPanel 288 288 
 
