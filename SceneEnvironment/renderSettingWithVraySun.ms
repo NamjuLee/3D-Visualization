@@ -55,20 +55,14 @@ fn SetRenderer theRenderer =(
 )
 
 
-fn checkRender nSearch =( -- function check if render installed 
-	theRenderer = for obj in RendererClass.classes where \
-	(matchPattern (obj as string) pattern:nSearch) -- check if the name in nSearch variable exist
-	collect obj
-	if theRenderer.count ==1
-	then renderers.current = theRenderer[1]()
-	else 
-	(messageBox "render not installed")
+fn GetRenderer renderer = ( -- function check if render installed (
+for r in 1 to (rendererClass.classes).count where matchPattern ((rendererClass.classes)[r] as string) pattern:renderer do Renderers.Production = RendererClass.Classes[r]()
 )	
 
  
 --delete $
 varVray = "V_Ray_Adv*"
-checkRender varVray
+GetRenderer varVray
 
 sunObj = vraysun pos:(point3 0 0 0) --create sun object
 targetObj = dummy pos:(point3 0 0 0) --then target
@@ -91,6 +85,10 @@ SetRenderer(theRenderer)
 -- for exposure controller
 VRayExposureControl =  VRay_Exposure_Control ()
 SceneExposureControl.exposureControl = VRayExposureControl
+
+renderSceneDialog.close() -- we need to close the window to change the size of the rendering image
+renderWidth = 1920; 
+renderHeight = 1080;
 
 Plane length:5000 width:5000 pos:[0 ,0,0]
 Teapot radius:27.9766 smooth:on segs:4 pos:[119.321,99.1414,0] 

@@ -55,20 +55,18 @@ fn SetRenderer theRenderer =(
 
 fn AppendVrayHDRIToEnvironment = (
 	varyHdri = VRayHDRI ()
-	varyHdri.gamma = 2.2
+	--varyHdri.gamma = 2.2
 	varyHdri.HDRIMapName =  getOpenFileName types:"HDRI(*.hdr)|*.hdr|All files|*.*|"
 	varyHdri.maptype = 2
 	environmentMap = varyHdri
 	)
 
-fn checkRender nSearch = (-- function check if render installed
-	theRenderer = for obj in RendererClass.classes where \
-	(matchPattern (obj as string) pattern:nSearch) -- check if the name in nSearch variable exist
-	collect obj
-	if theRenderer.count ==1
-	then renderers.current = theRenderer[1]()
-	else 
-	(messageBox "render not installed")
+fn checkRender nSearch = (-- function check if render installed (
+	theRenderer = for obj in RendererClass.classes where (matchPattern (obj as string) pattern:nSearch) collect obj -- check if the name in nSearch variable exist
+
+	
+	if theRenderer.count == 1 then (renderers.current = theRenderer[1]())
+	else (messageBox "render not installed")
 )	
 
 --delete $
@@ -78,6 +76,10 @@ checkRender varVray
 theRenderer=renderers.current
 SetRenderer(theRenderer)
 AppendVrayHDRIToEnvironment();
+
+renderSceneDialog.close() -- we need to close the window to change the size of the rendering image
+renderWidth = 1920; 
+renderHeight = 1080;
 
 -- for exposure controller
 Plane length:5000 width:5000 pos:[0 ,0,0]
