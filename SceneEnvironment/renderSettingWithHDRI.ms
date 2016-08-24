@@ -61,7 +61,7 @@ fn AppendVrayHDRIToEnvironment = (
 	environmentMap = varyHdri
 	)
 
-fn checkRender nSearch = -- function check if render installed (
+fn checkRender nSearch = (-- function check if render installed
 	theRenderer = for obj in RendererClass.classes where \
 	(matchPattern (obj as string) pattern:nSearch) -- check if the name in nSearch variable exist
 	collect obj
