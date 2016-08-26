@@ -33,6 +33,6 @@
 * B-8_VideoFromImages.jsx
 
 
-### VideoFromImages(AEScript
+### populateCamera
 ![Alt text](/populateCamera/img/populateCamera.gif?raw=true)
 * populateCamera.ms
