@@ -27,5 +27,37 @@ fn GetArrayObj theObj offset = (
 		)
 	return objArray
 	)
-geo = GetArrayObj $ 150
-print geo
+	
+cams = GetArrayObj $ 150
+print cams
+	
+	
+
+	
+
+-- render
+fn snapCam theCamera label size:[320, 240] frames: folder:"z:\project\\" = (
+	
+	local fname = folder + label + "-" + theCamera.name
+	local renderinWindow 
+	if frames == unsupplied then(
+		renderinWindow = render camera: theCamera outputFile:(fname + ".jpg") outputSize:size
+	)else(
+		renderinWindow = render camera: theCamera frameRange: #current outputFile: (fname + ".avi") outputSize: size
+		print("Thats not right!")
+	)
+	close renderinWindow
+)
+
+fn GetRenderFromCameras theCameras = (
+	
+	for c in theCameras do(
+		snapCam c  "Phase1" --size:[640,480] 
+	)
+)
+
+GetRenderFromCameras cams
+delete cams
+
+
+
