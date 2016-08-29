@@ -35,4 +35,5 @@
 
 ### populateCamera
 ![Alt text](/populateCamera/img/populateCamera.gif?raw=true)
+![Alt text](/populateCamera/img/populateCameraInAction.gif?raw=true)
 * populateCamera.ms
