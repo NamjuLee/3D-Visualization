@@ -32,9 +32,6 @@ cams = GetArrayObj $ 150
 print cams
 	
 	
-
-	
-
 -- render
 fn snapCam theCamera label size:[320, 240] frames: folder:"z:\project\\" = (
 	
